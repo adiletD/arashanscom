@@ -1,8 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Route, Link} from 'react-router-dom'
+import HomeScreen from './Screens/HomeScreen';
+import ProductScreen from './Screens/ProductScreen';
 
 function App() {
+    
+    // the class => className
+    // put / before the image sources
+    //the two variables are created
+    //replace the "s eith }s in the functions in html
+    //& remove the round brackets
+    //onclick --> onClick
+
+
 
   const openMenu =() =>{
     document.querySelector(".sidebar").classList.add("open");
@@ -14,13 +25,16 @@ function App() {
 
     
   return (
+      <BrowserRouter>
+
     <div className="grid-container">
         <header className="header">
             <div className="brand">
                 <button onClick={openMenu}>
                     &#9776;
                 </button>
-                <a href="index.html">Arashan</a>
+                <Link to="/">Arashan</Link>
+                
             </div>
             <div className="header-links">
                 <a href="cart.html">Cart  </a>
@@ -42,96 +56,20 @@ function App() {
                 </li>
             </ul>
         </aside>
+        {/*  
+            - delete all the product items, leace only one
+            - access the product object in products
+            - rename the static values
+            - should create products in data.js file with
+            objects as products 
 
+        
+        
+        */}
         <main className="main">
             <div className="content">
-                <ul className="products">
-                    <li>
-                        <div className="product">
-                            <img src="/images/kalpak1.jpg" alt="kaplak" className="product-image"/>
-                            <div className="product-name">
-                                <a href="product.html">
-                                    Kalpak
-                                </a>
-                            </div>
-                            <div className="product-brand">Adidas</div>
-                            <div className="product-price">$30</div>
-                            <div className="product-rating">4.6 Stars (15 reviews)</div>
-                        </div>
-                      
-                    </li>
-                    <li>
-                        <div className="product">
-                            <img src="/images/kalpak1.jpg" alt="kaplak" className="product-image"/>
-                            <div className="product-name">
-                                <a href="product.html">
-                                    Kalpak
-                                </a>
-                            </div>
-                            <div className="product-brand">Adidas</div>
-                            <div className="product-price">$30</div>
-                            <div className="product-rating">4.6 Stars (15 reviews)</div>
-                        </div>
-                        
-
-                    </li>
-                    <li>
-                        <div className="product">
-                            <img src="/images/kalpak1.jpg" alt="kaplak" className="product-image"/>
-                            <div className="product-name">
-                                <a href="product.html">
-                                    Kalpak
-                                </a>
-                            </div>
-                            <div className="product-brand">Adidas</div>
-                            <div className="product-price">$30</div>
-                            <div className="product-rating">4.6 Stars (15 reviews)</div>
-                        </div>
-
-                    </li>
-                    <li>
-                        <div className="product">
-                            <img src="/images/kalpak1.jpg" alt="kaplak" className="product-image"/>
-                            <div className="product-name">
-                                <a href="product.html">
-                                    Kalpak
-                                </a>
-                            </div>
-                            <div className="product-brand">Adidas</div>
-                            <div className="product-price">$30</div>
-                            <div className="product-rating">4.6 Stars (15 reviews)</div>
-                        </div>
-
-                    </li>
-                    <li>
-                        <div className="product">
-                            <img src="/images/kalpak1.jpg" alt="kaplak" className="product-image"/>
-                            <div className="product-name">
-                                <a href="product.html">
-                                    Kalpak
-                                </a>
-                            </div>
-                            <div className="product-brand">Adidas</div>
-                            <div className="product-price">$30</div>
-                            <div className="product-rating">4.6 Stars (15 reviews)</div>
-                        </div>
-
-                    </li>
-                    <li>
-                        <div className="product">
-                            <img src="/images/kalpak1.jpg" alt="kaplak" className="product-image"/>
-                            <div className="product-name">
-                                <a href="product.html">
-                                    Kalpak
-                                </a>
-                            </div>
-                            <div className="product-brand">Adidas</div>
-                            <div className="product-price">$30</div>
-                            <div className="product-rating">4.6 Stars (15 reviews)</div>
-                        </div>
-
-                    </li>
-                </ul>
+                <Route path="/product/:id" component={ProductScreen} />
+                <Route path="/" exact={true} component={HomeScreen} />
             </div>
 
         </main>
@@ -140,6 +78,7 @@ function App() {
         </footer>
     </div>
 
+    </BrowserRouter>
 
   );
 }
